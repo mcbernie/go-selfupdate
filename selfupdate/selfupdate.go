@@ -121,13 +121,21 @@ func (u *Updater) BackgroundRun() error {
 }
 
 func (u *Updater) wantUpdate() bool {
+	if u.CurrentVersion == "dev" ) {
+		return false
+	}
+	return true
+}
+
+// Remove Time 
+/*func (u *Updater) wantUpdate() bool {
 	path := u.getExecRelativeDir(u.Dir + upcktimePath)
 	if u.CurrentVersion == "dev" || (!u.ForceCheck && readTime(path).After(time.Now())) {
 		return false
 	}
 	wait := 24*time.Hour + randDuration(24*time.Hour)
 	return writeTime(path, time.Now().Add(wait))
-}
+}*/
 
 func (u *Updater) update() error {
 	path, err := osext.Executable()
