@@ -121,7 +121,7 @@ func (u *Updater) BackgroundRun() error {
 }
 
 func (u *Updater) wantUpdate() bool {
-	if u.CurrentVersion == "dev" ) {
+	if u.CurrentVersion == "dev" {
 		return false
 	}
 	return true
